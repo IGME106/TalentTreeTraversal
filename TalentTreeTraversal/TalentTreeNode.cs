@@ -64,6 +64,10 @@ namespace TalentTreeTraversal
 
         public void ListPossibleAbilities()
         {
+            if (!this.HasLearned)
+            {
+                Console.WriteLine(this.AbilityName);
+            }
             if ((this.LeftNode.LeftNode != null) && (this.LeftNode.HasLearned == true))
             {
                 this.LeftNode.ListPossibleAbilities();

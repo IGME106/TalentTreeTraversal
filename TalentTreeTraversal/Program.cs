@@ -24,7 +24,7 @@ namespace TalentTreeTraversal
             Level1_0 = new TalentTreeNode("Fireball") { HasLearned = true };
             Level1_1 = new TalentTreeNode("Magic Arrow") { HasLearned = false };
 
-            Level2_00 = new TalentTreeNode("Crazy Big Fireball") { HasLearned = true };
+            Level2_00 = new TalentTreeNode("Crazy Big Fireball") { HasLearned = false };
             Level2_01 = new TalentTreeNode("1000 Tiny Fireballs") { HasLearned = true };
             Level2_10 = new TalentTreeNode("Ice Arrow") { HasLearned = false };
             Level2_11 = new TalentTreeNode("Exploding Arrow") { HasLearned = false };
