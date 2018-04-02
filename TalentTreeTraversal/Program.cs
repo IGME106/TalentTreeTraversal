@@ -9,36 +9,46 @@ namespace TalentTreeTraversal
     class Program
     {
         public static TalentTreeNode Level0 { get; set; }
-        public static TalentTreeNode Level1Left { get; set; }
-        public static TalentTreeNode Level1Right { get; set; }
-        public static TalentTreeNode Level2LeftLeft { get; set; }
-        public static TalentTreeNode Level2LeftRight { get; set; }
-        public static TalentTreeNode Level2RightLeft { get; set; }
-        public static TalentTreeNode Level2RightRight { get; set; }
+
+        public static TalentTreeNode Level1_0 { get; set; }
+        public static TalentTreeNode Level1_1 { get; set; }
+
+        public static TalentTreeNode Level2_00 { get; set; }
+        public static TalentTreeNode Level2_01 { get; set; }
+        public static TalentTreeNode Level2_10 { get; set; }
+        public static TalentTreeNode Level2_11 { get; set; }
 
         static void Main(string[] args)
         {
             Level0 = new TalentTreeNode("Magic") { HasLearned = true };
-            Level1Left = new TalentTreeNode("Fireball") { HasLearned = true };
-            Level1Right = new TalentTreeNode("Magic Arrow") { HasLearned = true };
+            Level1_0 = new TalentTreeNode("Fireball") { HasLearned = true };
+            Level1_1 = new TalentTreeNode("Magic Arrow") { HasLearned = false };
 
-            Level2LeftLeft = new TalentTreeNode("Crazy Big Firewall") { HasLearned = true };
-            Level2LeftRight = new TalentTreeNode("1000 Tiny Fireballs") { HasLearned = true };
-            Level2RightLeft = new TalentTreeNode("Ice Arrow") { HasLearned = true };
-            Level2RightRight = new TalentTreeNode("Exploding Arrow") { HasLearned = true };
+            Level2_00 = new TalentTreeNode("Crazy Big Fireball") { HasLearned = true };
+            Level2_01 = new TalentTreeNode("1000 Tiny Fireballs") { HasLearned = true };
+            Level2_10 = new TalentTreeNode("Ice Arrow") { HasLearned = false };
+            Level2_11 = new TalentTreeNode("Exploding Arrow") { HasLearned = false };
 
-            Level1Left.LeftNode = Level2LeftLeft;
-            Level1Left.RightNode = Level2LeftRight;
-            Level1Right.LeftNode = Level2RightLeft;
-            Level1Right.RightNode = Level2RightRight;
+            Level1_0.LeftNode = Level2_00;
+            Level1_0.RightNode = Level2_01;
+            Level1_1.LeftNode = Level2_10;
+            Level1_1.RightNode = Level2_11;
 
-            Level0.LeftNode = Level1Left;
-            Level0.RightNode = Level1Right;
+            Level0.LeftNode = Level1_0;
+            Level0.RightNode = Level1_1;
 
+            Console.WriteLine("       All Possible Talents");
+            Console.WriteLine("==================================");
             Level0.ListAllAbilities();
             Console.WriteLine();
+
+            Console.WriteLine("        All Known Talents");
+            Console.WriteLine("==================================");
             Level0.ListKnownAbilities();
             Console.WriteLine();
+
+            Console.WriteLine(" All Unknown but Possible Talents");
+            Console.WriteLine("==================================");
             Level0.ListPossibleAbilities();
             Console.WriteLine();
         }
